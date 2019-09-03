@@ -59,7 +59,7 @@
 
   <body>
     <main>
-      <section class="section section-shaped section-lg">
+      <section class="section-shaped">
         <div class="shape shape-style-1 bg-gradient-default">
           <span></span>
           <span></span>
@@ -75,6 +75,11 @@
             <div class="col-lg-5">
               <div class="card bg-secondary shadow border-0">
                 <div class="card-body px-lg-4 py-lg-5">
+                  <div class="row">
+                    <div class="col text-center">
+                      <img class="text-center" src="assets/img/brand/typographyColor.png" alt="Logo Abid Hasan" height="100px" />
+                    </div>
+                  </div>
                   <div class="text-center text-muted mb-4">
                     <small>Or sign in with credentials</small>
                   </div>
@@ -109,43 +114,32 @@
                         />
                       </div>
                     </div>
-                    <div
-                      class="custom-control custom-control-alternative custom-checkbox"
-                    >
-                      <input
-                        class="custom-control-input"
-                        id="customCheckLogin"
-                        type="checkbox"
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="customCheckLogin"
-                      >
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckLogin" type="checkbox" />
+                      <label class="custom-control-label" for="customCheckLogin" >
                         <span>Remember me</span>
                       </label>
                     </div>
                     <div class="text-center">
-                      <button
-                        onclick="user_login()"
-                        type="button"
-                        class="btn btn-primary my-4"
-                      >
-                        Sign in
-                      </button>
+                      <button onclick="user_login()" type="button" class="btn btn-primary my-4"> Sign in </button>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="recovery.php" class="text-dark"><small>Forgot password?</small></a>
+                      </div>
+                      <div class="col-6">
+                        <a href="register.php" class="text-dark"><small>Create new account</small></a>
+                      </div>
                     </div>
                   </form>
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-6">
-                  <a href="#" class="text-light"
-                    ><small>Forgot password?</small></a
-                  >
+                  
                 </div>
                 <div class="col-6 text-right">
-                  <a href="register.php" class="text-light"
-                    ><small>Create new account</small></a
-                  >
+                  
                 </div>
               </div>
             </div>

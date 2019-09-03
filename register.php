@@ -28,14 +28,13 @@
   <title>Sign Up - Abid Hasan</title>
   <!-- AJAX -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- Session Controle -->
-  <script>
-    //$.ajax({});
-  </script>
+  <!-- Animation -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Favicon -->
   <link href="assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  
   <!-- Icons -->
   <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
   <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -45,10 +44,10 @@
 
 <body>
   <header class="header-global">
-    <navxx id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="index.php">
-          <img src="assets/img/brand/white.png" alt="brand">
+          <img src="assets/img/brand/typographyWhite.png" alt="brand">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,7 +57,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="index.php">
-                  <img src="assets/img/brand/blue.png" alt="brand">
+                  <img src="assets/img/brand/typographyColor.png" alt="brand">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -105,10 +104,10 @@
           </ul>
         </div>
       </div>
-    </navxx>
+    </nav>
   </header>
   <main>
-    <section class="section section-shaped section-lg">
+    <section class="section section-shaped">
       <div class="shape shape-style-1 bg-gradient-default">
         <span></span>
         <span></span>
@@ -141,6 +140,11 @@
                 </div>
               </div> -->
               <div class="card-body px-lg-5 py-lg-5">
+                <div class="row">
+                  <div class="col text-center">
+                    <img src="assets/img/brand/typographyColor.png" alt="Logo Abid Hasan" height="100px">
+                  </div>
+                </div>
                 <div class="text-center text-muted mb-4">
                   <small>Or sign up with credentials</small>
                 </div>
@@ -150,7 +154,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Name" type="text">
+                      <input id="name" class="form-control" placeholder="Name" type="text">
                     </div>
                   </div>
                   <div class="form-group">
@@ -158,7 +162,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Email" type="email">
+                      <input id="email" class="form-control" placeholder="Email" type="email">
                     </div>
                   </div>
                   <div class="form-group">
@@ -166,20 +170,20 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Password" type="password">
+                      <input id="password" class="form-control" placeholder="Password" type="password">
                     </div>
                   </div>
                   <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
                   <div class="row my-4">
                     <div class="col-12">
                       <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                        <label class="custom-control-label" for="customCheckRegister"><span>I agree with the <a href="#">Privacy Policy</a></span></label>
+                        <input class="custom-control-input" id="check" type="checkbox">
+                        <label class="custom-control-label" for="check"><span>I agree with the <a href="#">Privacy Policy</a></span></label>
                       </div>
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary mt-4">Create account</button>
+                    <button onclick="user_singup()" type="button" class="btn btn-primary mt-4">Create account</button>
                   </div>
                 </form>
               </div>
@@ -235,6 +239,7 @@
     </div>
   </footer>
   <!-- Core -->
+  <script src="assets/js/api.js"></script>
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/popper/popper.min.js"></script>
   <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
