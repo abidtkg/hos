@@ -1,5 +1,6 @@
 <?php
-  if(isset($_SESSION['session_id'])){
+  session_start();
+  if(isset($_SESSION['user_session_id'])){
     header("Location: dash/");
   }else{
 ?>

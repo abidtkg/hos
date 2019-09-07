@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: aplication/json");
     $method = $_SERVER['REQUEST_METHOD'];
-    date_default_timezone_set('America/Los_Angeles');
+    date_default_timezone_set('Asia/Dhaka');
     //case in function works
     if($method == "POST"){
         //user and user actions
@@ -20,9 +20,43 @@
 
     # user login function
     function user_login(){
+        session_start();
+        include 'db-config.php';
+
         $decode = json_decode($_POST['user_login']);
         $decode = $decode[0];
-        // user signin and verifiction start here. continued....
+        $email = $decode->email;
+        $password = $decode->password;
+        
+        $email = mysqli_real_escape_string($conn, $email);
+        $password = mysqli_real_escape_string($conn, $password);
+
+        if(empty($email) || empty($password)){
+            print_r(json_encode("empty_input"));
+            exit();
+        }else{
+            $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+            $result = mysqli_query($conn, $sql);
+            $result_rows = mysqli_num_rows($result);
+            //print_r($result_rows);
+            if($result_rows < 1){
+                print_r(json_encode("invalid_data"));
+            }else{
+                $result = mysqli_fetch_array($result);
+               // $password_ = $result['password'];
+                $password_check = password_verify($password, $result['password']);
+                if($password_check == 1){
+                    //session_id = $result['id'];
+                    $_SESSION['user_session_id'] = $result['id'];
+                    $_SESSION['name'] = $result['name'];
+                    $_SESSION['email'] = $result['email'];
+                    print_r(json_encode("login_success"));
+                    exit();
+                }else{
+                    print_r(json_encode("invalid_data"));
+                }
+            }
+        }
     }
 
     # user sign up function
@@ -56,11 +90,21 @@
                     $sql = "INSERT INTO `users` (`name`, `email`, `password`, `signup_date`) VALUES ('$name', '$email', '$password', '$date')";
                     mysqli_query($conn, $sql);
                     print_r(json_encode("signup_success"));
+                    exit();
                 }else{
                     print_r(json_encode("already_exist"));
                     exit();
                 }
             }
         }
+    }
+
+    # user logout function
+    function user_logout(){
+        session_start();
+        session_unset();
+        session_destroy();
+        print_r(json_encode("logout_success"));
+        exit();
     }
 ?>
